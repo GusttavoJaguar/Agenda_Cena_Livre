@@ -78,25 +78,24 @@ function salvarEvento(titulo, descricao, data) {
     salvarEvento("Reunião", "Planejar próximos passos", "2025-01-08");
           
 
-    function carregarEventos() {
-        const eventosRef = firebase.database().ref("eventos");
-        eventosRef.on("value", (snapshot) => {
-          const eventos = snapshot.val();
-          document.getElementById("agenda").innerHTML = ""; // Limpar a agenda
-      
-          for (const id in eventos) {
-            const evento = eventos[id];
-            const divEvento = document.createElement("div");
-            divEvento.innerHTML = `
-              <h3>${evento.titulo}</h3>
-              <p>${evento.descricao}</p>
-              <p>${evento.data}</p>
-            `;
-            document.getElementById("agenda").appendChild(divEvento);
-          }
-        });
-      }
-      
-      // Chamar ao carregar a página
-      carregarEventos();
-      
+function carregarEventos() {
+  const eventosRef = firebase.database().ref("eventos");
+  eventosRef.on("value", (snapshot) => {
+    const eventos = snapshot.val();
+    document.getElementById("agenda").innerHTML = ""; // Limpar a agenda
+
+    for (const id in eventos) {
+      const evento = eventos[id];
+      const divEvento = document.createElement("div");
+      divEvento.innerHTML = `
+        <h3>${evento.titulo}</h3>
+        <p>${evento.descricao}</p>
+        <p>${evento.data}</p>
+      `;
+      document.getElementById("agenda").appendChild(divEvento);
+    }
+  });
+}
+
+// Chamar ao carregar a página
+carregarEventos();
