@@ -46,20 +46,20 @@ const eventForm = document.getElementById('event-form');
             eventForm.reset();
         });
 
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "firebase/app";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-        apiKey: "AIzaSyCu93Pq00uGlifrt_TCq4PuHhPgWYNkMzo",
-        authDomain: "agenda-2fc38.firebaseapp.com",
-        projectId: "agenda-2fc38",
-        storageBucket: "agenda-2fc38.firebasestorage.app",
-        messagingSenderId: "284722997734",
-        appId: "1:284722997734:web:7db3393a925ab5cc14ce27"
-        };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyCu93Pq00uGlifrt_TCq4PuHhPgWYNkMzo",
+authDomain: "agenda-2fc38.firebaseapp.com",
+projectId: "agenda-2fc38",
+storageBucket: "agenda-2fc38.firebasestorage.app",
+messagingSenderId: "284722997734",
+appId: "1:284722997734:web:7db3393a925ab5cc14ce27"
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
