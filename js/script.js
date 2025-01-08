@@ -46,24 +46,6 @@ const eventForm = document.getElementById('event-form');
             eventForm.reset();
         });
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-apiKey: "AIzaSyCu93Pq00uGlifrt_TCq4PuHhPgWYNkMzo",
-authDomain: "agenda-2fc38.firebaseapp.com",
-projectId: "agenda-2fc38",
-storageBucket: "agenda-2fc38.firebasestorage.app",
-messagingSenderId: "284722997734",
-appId: "1:284722997734:web:7db3393a925ab5cc14ce27"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
 
 function salvarEvento(titulo, descricao, data) {
     const novoEvento = {
@@ -78,24 +60,29 @@ function salvarEvento(titulo, descricao, data) {
     salvarEvento("Reunião", "Planejar próximos passos", "2025-01-08");
           
 
-function carregarEventos() {
-  const eventosRef = firebase.database().ref("eventos");
-  eventosRef.on("value", (snapshot) => {
-    const eventos = snapshot.val();
-    document.getElementById("agenda").innerHTML = ""; // Limpar a agenda
+        function carregarEventos() {
+        const eventosRef = firebase.database().ref("eventos");
+        eventosRef.on("value", (snapshot) => {
+            const eventos = snapshot.val();
+            document.getElementById("agenda").innerHTML = ""; // Limpar a agenda
 
-    for (const id in eventos) {
-      const evento = eventos[id];
-      const divEvento = document.createElement("div");
-      divEvento.innerHTML = `
-        <h3>${evento.titulo}</h3>
-        <p>${evento.descricao}</p>
-        <p>${evento.data}</p>
-      `;
-      document.getElementById("agenda").appendChild(divEvento);
-    }
-  });
-}
+            for (const id in eventos) {
+            const evento = eventos[id];
+            const divEvento = document.createElement("div");
+            divEvento.innerHTML = `
+                <h3>${evento.titulo}</h3>
+                <p>${evento.descricao}</p>
+                <p>${evento.data}</p>
+            `;
+            document.getElementById("agenda").appendChild(divEvento);
+            }
+        });
+        }
 
-// Chamar ao carregar a página
-carregarEventos();
+
+        // Chamar ao carregar a página
+        carregarEventos();
+        
+        
+        
+const punycode = require('punycode/');
