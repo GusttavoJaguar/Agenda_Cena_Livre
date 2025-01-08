@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "agenda-2fc38-5aa09",
+    "site": "agenda-2fc38",
     "public": "(public)",
     "ignore": [
       "firebase.json",
